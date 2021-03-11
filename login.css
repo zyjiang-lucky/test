@@ -1,0 +1,13 @@
+body{
+	background-image: url(img/1.jpg);
+	background-size: contain;
+	
+	
+
+}
+.login{
+	margin-top: 250px;
+}
+.login>p{
+	font-size: 40px;
+	

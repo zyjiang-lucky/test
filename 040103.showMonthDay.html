@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head runat="server">
+		<title>用户指定月份天数输出</title>
+		<style type="text/css">
+			body{
+				background-color: burlywood;
+			}
+			h1{
+				margin-left: 550px;
+				margin-top: 200px;
+				}
+			.container{
+				margin-left: 600px;
+				margin-top: 140px;
+			}
+		</style>
+		<script type="text/javascript">
+			function year_change() {
+				var years = document.getElementById("year").value;
+				var mouths = document.getElementById("mouth").value;
+				if ((years % 4 == 0 && years % 100 != 0) || years % 400 == 0) {
+					if (mouths == "2") {
+						alert("这个月29天");
+					} else if (mouths == "4" || mouths == "6" || mouths == "9" || mouths == "11") {
+						alert("这个月30天");
+					} else {
+						alert("这个月31天");
+					}
+				} else {
+					if (mouths == "2") {
+						alert("这个月28天");
+					} else if (mouths == "4" || mouths == "6" || mouths == "9" || mouths == "11") {
+						alert("这个月30天");
+					} else {
+						alert("这个月31天");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>用户指定月份天数输出</h1>
+		<form id="form1" runat="server">
+			<div class="container">
+				请输入年份：<input type="text" id="year" /> <br />
+				请输入月份：<input type="text" id="mouth" /><br />
+				<input type="button" value="显示日期" onclick="year_change()" />
+			</div>
+		</form>
+	</body>
+</html>

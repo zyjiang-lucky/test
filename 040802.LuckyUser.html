@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>幸运用户生成小程序</title>
+		<script src="js/vue.js" type="text/javascript" charset="UTF-8">
+		</script>
+		<style>
+			body{
+				background-color: burlywood;
+				text-align: center;
+				padding: 0px;
+			}
+			h1{
+				margin-left: 0px;
+				margin-top: 150px;
+				}
+			button{
+				width: 250px;/*设置按钮宽度*/
+				height: 40px;/*设置按钮高度*/
+				color:white;/*字体颜色*/
+				background-color:cornflowerblue;/*按钮背景颜色*/
+				border-radius: 3px;/*让按钮变得圆滑一点*/
+				border-width: 0;/*消去按钮丑的边框*/
+				margin: 0;
+				outline: none;/*取消轮廓*/
+				font-family: KaiTi;/*字体设置为楷体*/
+				font-size: 17px;/*设置字体大小*/
+				text-align: center;/*字体居中*/
+				cursor: pointer;/*设置鼠标箭头手势*/
+			}
+			button:hover{/*鼠标移动时的颜色变化*/
+				background-color: green;
+			}
+			/* input{height: 30px;padding: 0px;outline: 110;} */
+			input.text{text-align:center;padding:5px 5px;width:200px;}
+			div{line-height: 100px;}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<h1>点击按钮生成幸运用户</h1>
+		<div id="app" style="padding: 50px;">
+			姓名：{{chooseUser.name}}<br />
+			居住地：{{chooseUser.capital}}<br />
+			年龄：{{chooseUser.age}}<br />
+			<button class="" type="text" @click="rdm=Math.ceil(Math.random()*10+1)%5;chooseUser=users[rdm]">
+			幸运用户生成器按钮</button>
+			<div v-for="user in users">
+				<div v-if="chooseUser==user.code">
+				姓名：{{chooseUser.name}}<br />
+				居住地：{{chooseUser.capital}}<br />
+				年龄：{{chooseUser.age}}<br />
+				</div>
+			</div>
+			<br><br><br>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					rdm:'',
+					chooseUser:'',
+					users:[
+						{name:"Tom",capital:"北京",age:"23",code:"1"},
+						{name:"Marry",capital:"华盛顿",age:"24",code:"2"},
+						{name:"Coco",capital:"伦敦",age:"26",code:"3"},
+						{name:"Momo",capital:"巴黎",age:"26",code:"4"},
+						{name:"Gege",capital:"东京",age:"24",code:"5"}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
